@@ -19,7 +19,7 @@ question = ["Вы любите физическую активность?",
 "Вам нравиться плавать на байдарке?",
 "Вы любите работать в команде?",
 "Вы увлекаетесь бизнесом?",
-"Вы любите животных?",
+"Вы любите природу?",
 "Вы любите гулять с друзьями?",
 "Вы увлекаетесь пением?",
 "Вы увлекаетесь разгадкой шифров или кроссвордов?",
@@ -44,7 +44,34 @@ question = ["Вы любите физическую активность?",
 "Вы умете убеждать людей в чём либо?",
 "Вы отстаиваете свои убеждения?",
 "Вы любите отдавать что-то кому-то?",
-"Вы доверяете людям?"]
+"Вы доверяете людям?"
+"Вы хорошо запоминаете лейт-мотив музыки?",	
+"Вы любите гулять по лесу одному?",			
+"Вы любите расказывать анекдоты?",
+"Вы обдумываете что вы рисуете?",
+"Вы любите рисовать пейзажи?",	
+"Вы от скуки считаете до опр. числа?",
+"Любите слушать звуки природы?",	
+"Любите слушать звуки животных?",
+"Вы умеете читать ноты?",
+"Вы любите животных?",		
+"Вы запоминаете школьный материал при помощи картинок и образов?",
+"У вас большой словарный запас?",	
+"Вас увлекают иностранные языки?",
+"Вы сочиняете свою музыку или рэп?",
+"Вы улавливаете ритм в окружающих тебя звука?",
+"Вы любишь играть в спектаклях?",		
+"У вас хорошая координация движений и реакция?",		
+"Вы пишешь без ошибок?",
+"Ваш компьютер не только для игр?",
+"Вы любите химию?",
+"Вы любите делать зарядку?",		
+"Любите смотреть оперы, спектакли и т.п.?",			
+"Вы ходите по комнате, когда думаете?",		
+"Движения помогают вам лучше запоминать информацию?",
+"Вы умеете делать реалистичные и подробные зарисовки?",			
+"Вы умело подмечаете различные детали в людях?",		
+"Вы любите рисовать что-то у друга в тетради?"]
 
 tipe = 0
 tipe2 = 0
@@ -52,33 +79,30 @@ tipe3 = 0
 tipe4 = 0
 
 def questions():
-    while tipe+tipe2+tipe3+tipe4 != 40:
+    while tipe+tipe2+tipe3+tipe4 != 67:
         if next() and form.pushButton.clicked.connect or form.pushButton_2.clicked.connect:
             shuffle(question)
-            form.label_2.setText(question[0])
+            form.text.setText("*****")
 
-def button_clicked(self): 
-    print(1)
-    shuffle(question)
-    self.ui.label_2.setText(question[0])
-    self.ui.label_2
-    time.sleep(1)
 
-def next(self):
+def next():
     global Form, Window, window, form
     Form, Window = uic.loadUiType("Qt2better.ui")
     window = Window()
     form = Form()
     form.setupUi(window)
     form.pushButton.clicked.connect(lambda: next())
-    form.pushButton.clicked.connect(lambda: button_clicked(self))
-    form.pushButton.clicked.connect(lambda: button_clicked(self))
+    form.pushButton_2.clicked.connect(lambda: next())
+    form.pushButton7.clicked.connect(lambda: questions())
+    form.pushButton_2.clicked.connect(lambda: questions())
+    form.pushButton.clicked.connect(lambda: result())
+    form.pushButton.clicked.connect(lambda: result())
 
     #form.pushButton.clicked.connect(lambda: next2())
     #form.pushButton_2.clicked.connect(lambda: next2())
 
     window.show()
-    
+ 
 
 def next2():
     global Form, Window, window, form
@@ -116,10 +140,10 @@ form.setupUi(window)
 
 
 form.pushButton.clicked.connect(lambda: next())
-#form.pushButton.clicked.connect(lambda: next2())
-#form.pushButton.clicked.connect(lambda: next2())
-form.pushButton.clicked.connect(lambda: button_clicked())
-form.pushButton.clicked.connect(lambda: button_clicked())
+form.pushButton.clicked.connect(lambda: next2())
+form.pushButton.clicked.connect(lambda: next2())
+form.pushButton.clicked.connect(lambda: result())
+form.pushButton.clicked.connect(lambda: result())
 
 
 window.show()
