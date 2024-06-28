@@ -4,6 +4,14 @@ from random import shuffle
 from time import *
 
 Form, Window = uic.loadUiType("Qt1better.ui")
+def start():    
+    global Form, Window, window, form
+    window = Window()
+    form = Form()
+    form.setupUi(window)
+    if form.pushButton.clicked.connect:
+        Form, Window = uic.loadUiType("Qt2better.ui")
+        
 
 question = ["Вы любите физическую активность?",
 "Вы увлекаетесь чтением?",
@@ -88,7 +96,6 @@ def questions():
 
 def next():
     global Form, Window, window, form
-    Form, Window = uic.loadUiType("Qt2better.ui")
     window = Window()
     form = Form()
     form.setupUi(window)
